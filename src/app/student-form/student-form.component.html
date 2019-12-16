@@ -1,0 +1,6 @@
+<input type="hidden" [formControl]="id"><br>
+Name: <input type="text" [formControl]="name"><br>
+Age: <input type="number" [formControl]="age"><br>
+<input type="button" (click)='add()' value="add">
+<input type="button" (click)='update()' value="update"><br>
+<div [innerHTML]="message"></div>

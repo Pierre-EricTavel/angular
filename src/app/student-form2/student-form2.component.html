@@ -1,0 +1,29 @@
+<style>
+.is-invalid{
+    border-color: red ;
+}
+</style>
+<form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+    Name:<input formControlName="name" [ngClass]="{'is-invalid':(name.dirty || name.touched) && name.invalid}" >
+     <div *ngIf="(name.dirty || name.touched)">
+        <span *ngIf="name.invalid">Name is invalid</span>
+        <span *ngIf="name.errors?.required">, it is required</span>
+        <span *ngIf="name.errors?.minlength">, 
+            it is too short, min length={{name.errors.minlength.requiredLength}}</span>
+     </div>
+     <br>
+    Age <input longueurmax="3" formControlName="age" [ngClass]="{'is-invalid':(age.dirty || age.touched) && age.invalid}"><br>
+     <div *ngIf="(age.dirty || age.touched)">
+        <span *ngIf="age.invalid">Name is invalid</span>
+        <span *ngIf="age.errors?.ageDomain">, 
+            is not OK ={{age.errors.ageDomain.parsedAge}} 
+            is less than {{age.errors.ageDomain.min}} 
+            or more than {{age.errors.ageDomain.max}} </span>
+     </div>
+     email <input formControlName="email" validemail [ngClass]="{'is-invalid':(email.dirty || email.touched) && email.invalid}">
+
+     <br>
+    
+    <button type="submit">Send</button>
+</form>
+<button (click)="resetValues()">Reset</button>

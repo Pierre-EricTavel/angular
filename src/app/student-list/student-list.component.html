@@ -1,0 +1,14 @@
+<table>
+    <tr *ngFor="let student of getStudents();
+    let i = index;
+    let pair=even;
+    " [class.estpair]="pair">
+        <td>{{i}}</td>
+        <td>{{student.id}}</td>
+         <td>{{student.name}}</td>
+         <td>{{student.age}}</td>
+         <td><button (click)="deleteStudent(student.id)">Del</button>
+            <button (click)="editStudent(student.id)">Edit</button></td>
+    </tr>
+</table>
+
