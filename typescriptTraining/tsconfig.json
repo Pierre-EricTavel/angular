@@ -1,0 +1,13 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+        "target": "ES2015",
+        "module": "ESNext",
+        "outDir": "out",
+        "declaration": true,
+    },
+    "lib": [
+        "es2018",
+        "dom"
+      ]
+}
